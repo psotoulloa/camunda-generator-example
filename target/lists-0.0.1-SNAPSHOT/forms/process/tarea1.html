@@ -1,0 +1,29 @@
+<form name="reunionComite" class='form-horizontal'>
+  <script cam-script type="text/form-script">
+    camForm.on('form-loaded', function()
+    {
+      camForm.variableManager.fetchVariable('products');
+    });
+    camForm.on('variables-restored', function()
+    {
+      $scope.products = camForm.variableManager.variableValue('products');
+    });
+    
+
+    
+    camForm.on('submit', function(evt) {});
+  </script>
+  
+  
+    <div class="form-group">
+      <label class='col-lg-4 col-md-6 control-label'>Product</label>
+      <div class='col-lg-8 col-md-6'>
+        <select class="form-control"
+            cam-variable-name="product" 
+            cam-variable-type="String" >
+          <option ng-repeat="(key,val) in products" value="{{key}}">{{val}}</option>
+        </select>
+        </div>
+    </div>
+  
+</form>
