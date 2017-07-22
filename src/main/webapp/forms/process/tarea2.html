@@ -1,0 +1,96 @@
+<form name="reunionComite" class='form-horizontal'>
+  <script cam-script type="text/form-script">
+    camForm.on('form-loaded', function()
+    {
+    });
+    camForm.on('variables-restored', function()
+    {
+    });
+    
+    var dateFieldOpened1 = false;
+    $scope.open1 = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+			$scope.dateFieldOpened1 = true;
+		};
+
+    
+    camForm.on('submit', function(evt) {
+      for (var i = 0; i < camForm.fields.length; i++) {
+    
+        if (camForm.fields[i].variableName == 'archivo') {
+          camForm.fields.splice(i, 1);
+          camForm.variableManager.destroyVariable('archivo');
+        }
+		
+      }
+    });
+  </script>
+  
+  
+    <div class="form-group">
+      <label class='col-lg-4 col-md-6 control-label'>Titulo</label>
+      <div class='col-lg-8 col-md-6'>
+        <input class="form-control"
+          type="text"
+          cam-variable-name="titulo"
+          cam-variable-type="String" 
+          ng-required='true' 
+          />
+        </div>
+    </div>
+  
+    <div class="form-group">
+      <label class='col-lg-4 col-md-6 control-label'>Descripcion</label>
+      <div class='col-lg-8 col-md-6'>
+        <textarea class="form-control"
+          cam-variable-name="descripcion"
+          cam-variable-type="String" 
+          ng-required='true' 
+          ></textarea>
+        </div>
+    </div>
+  
+    <div class="form-group">
+      <label class='col-lg-4 col-md-6 control-label'>Archivo</label>
+      <div class='col-lg-8 col-md-6'>
+        <input class="form-control" type="file"
+          id='filearchivo'
+          cam-variable-name="archivo"
+          cam-variable-type="File"
+          cam-max-filesize="10000000" />
+        
+        </div>
+    </div>
+  
+    <div class="form-group">
+      <label class='col-lg-4 col-md-6 control-label'>Fecha</label>
+      <div class='col-lg-8 col-md-6'>
+        <input class="form-control"
+          type="text"
+          cam-variable-name="fecha"
+          cam-variable-type="Date"
+          datepicker-popup="yyyy-MM-dd'T'HH:mm:ss" 
+          ng-required='true' 
+          is-open="dateFieldOpened1" />
+        <span class="input-group-btn">
+          <button type="button"
+          class="btn btn-default"
+          ng-click="open1($event)">
+          <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+        </div>
+    </div>
+  
+    <div class="form-group">
+      <label class='col-lg-4 col-md-6 control-label'>Dias</label>
+      <div class='col-lg-8 col-md-6'>
+        <input class="form-control"
+          type="number"
+          cam-variable-name="dias"
+          cam-variable-type="Integer" />
+        </div>
+    </div>
+  
+</form>

@@ -1,0 +1,44 @@
+<form name="reunionComite" class='form-horizontal'>
+  <script cam-script type="text/form-script">
+    camForm.on('form-loaded', function()
+    {
+      camForm.variableManager.fetchVariable('titulo');
+      camForm.variableManager.fetchVariable('descripcion');
+      camForm.variableManager.fetchVariable('ejecutivos');
+      camForm.variableManager.fetchVariable('ejecutivo');
+      camForm.variableManager.fetchVariable('fecha');
+      camForm.variableManager.fetchVariable('dias');
+      camForm.variableManager.fetchVariable('archivo');
+    });
+    camForm.on('variables-restored', function()
+    {
+      $scope.titulo = camForm.variableManager.variableValue('titulo');
+      $scope.descripcion = camForm.variableManager.variableValue('descripcion');
+      $scope.ejecutivos = camForm.variableManager.variableValue('ejecutivos');
+      $scope.ejecutivo = camForm.variableManager.variableValue('ejecutivo');
+      $scope.fecha = camForm.variableManager.variableValue('fecha');
+      $scope.dias = camForm.variableManager.variableValue('dias');
+      $scope.archivo = camForm.variableManager.variableValue('archivo');
+    });
+    
+
+    
+    camForm.on('submit', function(evt) {});
+  </script>
+  <div class="form-group">
+      <h4>{{titulo}}</h4>
+    </div><div class="form-group">
+      <h4>{{descripcion}}</h4>
+    </div><div class="form-group">
+      <h4>{{ejecutivos}}</h4>
+    </div><div class="form-group">
+      <h4>{{ejecutivo}}</h4>
+    </div><div class="form-group">
+      <h4>{{fecha}}</h4>
+    </div><div class="form-group">
+      <h4>{{dias}}</h4>
+    </div><div class="form-group">
+      <h4>{{archivo}}</h4>
+    </div>
+  
+</form>

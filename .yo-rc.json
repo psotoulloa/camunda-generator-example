@@ -1,13 +1,13 @@
 {
   "generator-camunda": {
     "groupId": "org.camunda.processes",
-    "artifactId": "lists",
+    "artifactId": "example",
     "packaging": "war",
-    "applicationName": "AppList",
+    "applicationName": "AppExample",
     "applicationPackage": "org.camunda.processes",
-    "processPackage": "org.camunda.processes.lists",
+    "processPackage": "org.camunda.processes.example",
     "bpmFile": "process.bpmn",
     "applicationPackagePath": "src/main/java/org/camunda/processes",
-    "applicationClassName": "AppListApplication"
+    "applicationClassName": "AppExampleApplication"
   }
 }
